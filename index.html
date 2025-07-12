@@ -15,19 +15,21 @@
     }
 
     body {
-      background: #f2f2f2;
+      background: linear-gradient(to right, #fff8f0, #ffe6e6);
+      background-image: url('https://www.transparenttextures.com/patterns/flower.png');
     }
 
     header {
-      background: #000;
+      background: linear-gradient(to right, #ff4e50, #f9d423);
       color: white;
       padding: 1rem 2rem;
       text-align: center;
       animation: fadeInDown 1s ease-out;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
     }
 
     nav {
@@ -35,6 +37,7 @@
       justify-content: center;
       gap: 2rem;
       margin-top: 1rem;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -45,11 +48,11 @@
     }
 
     nav a:hover {
-      color: #f39c12;
+      color: #ffeb3b;
     }
 
     .hero {
-      background: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1499364615650-ec38552f4f34') center/cover no-repeat;
       height: 60vh;
       display: flex;
       align-items: center;
@@ -80,13 +83,14 @@
 
     .products-section {
       padding: 3rem 2rem;
-      background: #fff;
+      background: #fff9f9;
       text-align: center;
     }
 
     .products-section h2 {
       margin-bottom: 2rem;
-      font-size: 2rem;
+      font-size: 2.3rem;
+      color: #b71c1c;
     }
 
     .product-list {
@@ -97,16 +101,17 @@
     }
 
     .product {
-      background: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: #fff5f5;
+      border: 2px solid #ffcccb;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
       width: 250px;
       padding: 1rem;
       transition: transform 0.3s;
     }
 
     .product:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
     }
 
     .product img {
@@ -116,6 +121,7 @@
 
     .product h3 {
       margin: 1rem 0 0.5rem;
+      color: #d32f2f;
     }
 
     .product p {
@@ -126,56 +132,63 @@
     .order-btn {
       margin-top: 1rem;
       padding: 0.5rem 1rem;
-      background: #f39c12;
+      background: linear-gradient(to right, #f12711, #f5af19);
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
     .order-btn:hover {
-      background: #e67e22;
+      background: linear-gradient(to right, #f5af19, #f12711);
     }
 
     .contact-section {
-      background: #fff;
+      background: #fff9f0;
       padding: 3rem 2rem;
       text-align: center;
     }
 
     .contact-section h2 {
       margin-bottom: 2rem;
-      font-size: 2rem;
+      font-size: 2.3rem;
+      color: #c2185b;
     }
 
     .contact-box {
       max-width: 500px;
       margin: auto;
-      background: #f0f0f0;
+      background: #ffe6e6;
       padding: 2rem;
-      border-radius: 10px;
+      border-radius: 12px;
+      border: 1px solid #ffb6b6;
       text-align: left;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
     }
 
     .contact-box label {
       font-weight: bold;
+      color: #880e4f;
     }
 
     .contact-box p {
       margin-bottom: 1rem;
+      color: #444;
     }
 
     footer {
-      background: #111;
-      color: #aaa;
+      background: #c62828;
+      color: #fff8e1;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
     }
 
     @keyframes fadeInDown {
-      from {opacity: 0; transform: translateY(-50px);}
-      to {opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -200,7 +213,6 @@
   <section class="products-section" id="products">
     <h2>Our Products</h2>
     <div class="product-list">
-      <!-- Repeatable product blocks -->
       <script>
         const productList = document.currentScript.parentElement;
         for (let i = 1; i <= 20; i++) {
