@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f9f9f9, #e8e8e8);
+}
+
+header {
+  background: linear-gradient(90deg, #000, #333);
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+nav a:hover {
+  color: #f39c12;
+  transform: scale(1.1);
+}
+
+.hero {
+  background: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246') center/cover no-repeat;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: zoomIn 1.5s ease-out;
+}
+
+.hero-content h2 {
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.products-section {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+.products-section h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.product {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 260px;
+  padding: 1.5rem 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.product p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.order-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.order-btn:hover {
+  background: linear-gradient(90deg, #e67e22, #d35400);
+}
+
+.contact-section {
+  background: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact-section h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.contact-box {
+  max-width: 600px;
+  margin: auto;
+  background: #f8f8f8;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-box label {
+  font-weight: bold;
+  display: block;
+  color: #444;
+}
+
+.contact-box p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
