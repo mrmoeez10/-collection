@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish Collection - Order Now</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f2f2f2;
+    }
+
+    header {
+      background: #000;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+    }
+
+    .products-section {
+      padding: 3rem 2rem;
+      background: #fff;
+      text-align: center;
+    }
+
+    .products-section h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .product {
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 250px;
+      padding: 1rem;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .product p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .order-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #f39c12;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .order-btn:hover {
+      background: #e67e22;
+    }
+
+    .contact-section {
+      background: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .contact-box {
+      max-width: 500px;
+      margin: auto;
+      background: #f0f0f0;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .contact-box label {
+      font-weight: bold;
+    }
+
+    .contact-box p {
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Stylish Collection</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#products">Products</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Fashion Meets Elegance</h2>
+    </div>
+  </section>
+
+  <section class="products-section" id="products">
+    <h2>Our Products</h2>
+    <div class="product-list">
+      <!-- Repeatable product blocks -->
+      <script>
+        const productList = document.currentScript.parentElement;
+        for (let i = 1; i <= 20; i++) {
+          productList.innerHTML += `
+            <div class="product">
+              <img src="https://via.placeholder.com/250x200?text=Product+${i}" alt="Product ${i}">
+              <h3>Product ${i}</h3>
+              <p>High-quality, stylish and comfortable fashion item.</p>
+              <button class="order-btn" onclick="alert('Ordered: Product ${i}')">Order Now</button>
+            </div>
+          `;
+        }
+      </script>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+      <p><label>Phone:</label> +92 300 1234567</p>
+      <p><label>WhatsApp:</label> +92 300 7654321</p>
+      <p><label>Address:</label> Stylish Collection, Main Boulevard, Lahore, Pakistan</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Stylish Collection. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
