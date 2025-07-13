@@ -1,246 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stylish Collection - Order Now</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(to right, #fff8f0, #ffe6e6);
-      background-image: url('https://www.transparenttextures.com/patterns/flower.png');
-    }
-
-    header {
-      background: linear-gradient(to right, #ff4e50, #f9d423);
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-      animation: fadeInDown 1s ease-out;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffeb3b;
-    }
-
-    .hero {
-      background: url('https://uploads.onecompiler.io/433bkrhuh/43qgcj89d/image%20fashion.avif') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-content h2 {
-      font-size: 3rem;
-    }
-
-    .products-section {
-      padding: 3rem 2rem;
-      background: #fff9f9;
-      text-align: center;
-    }
-
-    .products-section h2 {
-      margin-bottom: 2rem;
-      font-size: 2.3rem;
-      color: #b71c1c;
-    }
-
-    .product-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .product {
-      background: #fff5f5;
-      border: 2px solid #ffcccb;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
-      width: 250px;
-      padding: 1rem;
-      transition: transform 0.3s;
-    }
-
-    .product:hover {
-      transform: translateY(-8px);
-    }
-
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .product h3 {
-      margin: 1rem 0 0.5rem;
-      color: #d32f2f;
-    }
-
-    .product p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .order-btn {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: linear-gradient(to right, #f12711, #f5af19);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .order-btn:hover {
-      background: linear-gradient(to right, #f5af19, #f12711);
-    }
-
-    .contact-section {
-      background: #fff9f0;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .contact-section h2 {
-      margin-bottom: 2rem;
-      font-size: 2.3rem;
-      color: #c2185b;
-    }
-
-    .contact-box {
-      max-width: 500px;
-      margin: auto;
-      background: #ffe6e6;
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid #ffb6b6;
-      text-align: left;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
-    }
-
-    .contact-box label {
-      font-weight: bold;
-      color: #880e4f;
-    }
-
-    .contact-box p {
-      margin-bottom: 1rem;
-      color: #444;
-    }
-
-    footer {
-      background: #c62828;
-      color: #fff8e1;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <h1>Stylish Collection</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#products">Products</a>
-      <a href="#order">Order</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h2> 𝔽𝔸𝕊ℍ𝕀𝕆ℕ 𝕄𝕖𝕖𝕥𝕤 𝔼𝕝𝕖𝕘𝕒𝕟𝕔𝕖 </h2>
+<section class="products-section" id="products">
+  <h2>Our Products</h2>
+  <div class="product-list">
+    <div class="product">
+      <img src="https://source.unsplash.com/250x250/?fashion,1" alt="Product 1">
+      <h3>Product 1</h3>
+      <p>High-quality, stylish and comfortable items.</p>
+      <button class="order-btn" onclick="alert('Ordered: Product 1')">Order Now</button>
+      <button class="order-btn" onclick="alert('Added to Cart: Product 1')">Add to Cart</button>
     </div>
-  </section>
-
-  <section class="products-section" id="products">
-    <h2>Our Products</h2>
-    <div class="product-list">
-      <script>
-        const productList = document.currentScript.parentElement;
-        for (let i = 1; i <= 20; i++) {
-          productList.innerHTML += `
-            <div class="product">
-              <img src="https://uploads.onecompiler.io/433bkrhuh/43qgcj89d/image%20fashion.avif" alt="Product ${i}">
-              <h3>Product ${i}</h3>
-              <p>High-quality, stylish and comfortable items.</p>
-              <button class="order-btn" onclick="alert('Ordered: Product ${i}')">Order Now</button>
-            </div>
-          `;
-        }
-      </script>
+    <div class="product">
+      <img src="https://source.unsplash.com/250x250/?fashion,2" alt="Product 2">
+      <h3>Product 2</h3>
+      <p>Elegant design with premium fabric and comfort.</p>
+      <button class="order-btn" onclick="alert('Ordered: Product 2')">Order Now</button>
+      <button class="order-btn" onclick="alert('Added to Cart: Product 2')">Add to Cart</button>
     </div>
-  </section>
-
-  <section class="contact-section" id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact-box">
-      <p><label>Phone:</label> +92 336 6577284</p>
-      <p><label>WhatsApp:</label> +92 336 6577284</p>
-      <p><label>Address:</label> Stylish Collection, Main Fasilabad road,sheikhupura</p>
+    <div class="product">
+      <img src="https://source.unsplash.com/250x250/?fashion,3" alt="Product 3">
+      <h3>Product 3</h3>
+      <p>Trendy outfit for casual and formal occasions.</p>
+      <button class="order-btn" onclick="alert('Ordered: Product 3')">Order Now</button>
+      <button class="order-btn" onclick="alert('Added to Cart: Product 3')">Add to Cart</button>
     </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Stylish Collection. All rights reserved.</p>
-  </footer>
-</body>
-
-</html>
+    <!-- Repeat for more products -->
+    <div class="product">
+      <img src="https://source.unsplash.com/250x250/?fashion,4" alt="Product 4">
+      <h3>Product 4</h3>
+      <p>Latest style crafted with quality materials.</p>
+      <button class="order-btn" onclick="alert('Ordered: Product 4')">Order Now</button>
+      <button class="order-btn" onclick="alert('Added to Cart: Product 4')">Add to Cart</button>
+    </div>
+    <!-- You can add up to 20 or more with different Unsplash images like this -->
+  </div>
+</section>
