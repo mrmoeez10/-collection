@@ -277,7 +277,7 @@
       productList.appendChild(div);
     });
 
-   function openOrderForm(productName) {
+  function openOrderForm(productName) {
   const orderWindow = window.open('', 'OrderWindow', 'width=500,height=600');
   orderWindow.document.write(`
     <!DOCTYPE html>
@@ -328,22 +328,37 @@
     </head>
     <body>
       <h2>Order Form - ${productName}</h2>
-      <form action="https://formsubmit.co/mughalmo227@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Stylish Collection Order!">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="Product Name" value="${productName}">
-        
+      <form id="orderForm">
         <label for="name">Name:</label>
-        <input type="text" name="name" required placeholder="Enter your name">
+        <input type="text" id="name" required placeholder="Enter your name">
 
         <label for="phone">Phone Number:</label>
-        <input type="tel" name="phone" required placeholder="03xx-xxxxxxx">
+        <input type="tel" id="phone" required placeholder="03xx-xxxxxxx">
 
         <label for="address">Address:</label>
-        <textarea name="address" rows="4" required placeholder="Enter your address"></textarea>
+        <textarea id="address" rows="4" required placeholder="Enter your address"></textarea>
 
-        <button type="submit">Submit Order</button>
+        <button type="submit">Send via WhatsApp</button>
       </form>
+
+      <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          const name = document.getElementById('name').value.trim();
+          const phone = document.getElementById('phone').value.trim();
+          const address = document.getElementById('address').value.trim();
+
+          const message = \`Hello, can you please order this product for me?
+Product: ${productName}
+Name: \${name}
+Phone: \${phone}
+Address: \${address}\`;
+
+          const whatsappLink = 'https://wa.me/923366577284?text=' + encodeURIComponent(message);
+          window.open(whatsappLink, '_blank');
+        });
+      </script>
     </body>
     </html>
   `);
