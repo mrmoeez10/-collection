@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -159,6 +158,42 @@
       padding: 1rem;
       margin-top: 2rem;
     }
+
+    /* WhatsApp Info Box Styling */
+    #whatsapp-info-box {
+      display: none;
+      max-width: 400px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #e8f5e9;
+      border: 2px solid #4caf50;
+      border-radius: 10px;
+      text-align: center;
+      color: #2e7d32;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    #whatsapp-info-box img {
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    #whatsapp-info-box a {
+      display: inline-block;
+      padding: 0.6rem 1rem;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    #whatsapp-info-box a:hover {
+      background-color: #1ebe5d;
+    }
   </style>
 </head>
 
@@ -183,6 +218,21 @@
     <div class="product-list" id="product-list"></div>
   </section>
 
+  <!-- WhatsApp Info Box -->
+  <div id="whatsapp-info-box">
+    <div style="font-size: 2rem; margin-bottom: 0.5rem;">
+      📱 <span style="vertical-align: middle;">Order via WhatsApp</span>
+    </div>
+    <p style="margin-bottom: 1rem;">
+      For order, directly send a message on this number:<br />
+      <strong style="font-size: 1.2rem;">0336 6577284</strong>
+    </p>
+    <a href="https://wa.me/92336577284" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+      Message on WhatsApp
+    </a>
+  </div>
+
   <footer>
     <p>&copy; 2025 Stylish Collection. All rights reserved.</p>
   </footer>
@@ -205,77 +255,17 @@
         <h3>${product.name}</h3>
         <p>Elegant, durable, and trendy.</p>
         <div class="btn-group">
-          <button class="cart-btn" onclick="openOrderForm('${product.name.replace(/'/g, "\\'")}')">Order via WhatsApp</button>
+          <button class="cart-btn" onclick="showWhatsAppInfo('${product.name.replace(/'/g, "\\'")}')">Order via WhatsApp</button>
         </div>
       `;
       productList.appendChild(div);
     });
 
-    function openOrderForm(productName) {
-      const orderWindow = window.open('', '_blank', 'width=500,height=600,noopener,noreferrer');
-      const content = `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <title>Order - ${productName}</title>
-          <style>
-            body {
-              font-family: 'Poppins', sans-serif;
-              background: #e0f7fa;
-              padding: 2rem;
-              color: #2e7d32;
-            }
-            label, input, textarea, button {
-              display: block;
-              width: 100%;
-              margin-bottom: 1rem;
-            }
-            input, textarea {
-              padding: 0.5rem;
-              border: 1px solid #ccc;
-              border-radius: 5px;
-            }
-            button {
-              background: #4caf50;
-              color: white;
-              padding: 0.7rem;
-              border: none;
-              border-radius: 5px;
-              cursor: pointer;
-            }
-          </style>
-        </head>
-        <body>
-          <h2>Order for ${productName}</h2>
-          <form id="orderForm">
-            <label>Name:</label>
-            <input type="text" id="name" required />
-            <label>Phone:</label>
-            <input type="tel" id="phone" required />
-            <label>Address:</label>
-            <textarea id="address" rows="3" required></textarea>
-            <button type="submit">Send WhatsApp Order</button>
-          </form>
-          <script>
-            document.getElementById('orderForm').addEventListener('submit', function(e) {
-              e.preventDefault();
-              const name = document.getElementById('name').value;
-              const phone = document.getElementById('phone').value;
-              const address = document.getElementById('address').value;
-              const message = \`Hello, I would like to order:\\nProduct: ${productName}\\nName: \${name}\\nPhone: \${phone}\\nAddress: \${address}\`;
-              const whatsappUrl = 'https://wa.me/+92336577284?text=' + encodeURIComponent(message);
-              window.open(whatsappUrl, '_blank');
-            });
-          <\/script>
-        </body>
-        </html>
-      `;
-      orderWindow.document.open();
-      orderWindow.document.write(content);
-      orderWindow.document.close();
+    function showWhatsAppInfo(productName) {
+      const infoBox = document.getElementById('whatsapp-info-box');
+      infoBox.style.display = 'block';
+      infoBox.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
-
 </html>
