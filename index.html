@@ -205,18 +205,19 @@
         <h3>${product.name}</h3>
         <p>Elegant, durable, and trendy.</p>
         <div class="btn-group">
-          <button class="cart-btn" onclick="openOrderForm('${product.name}')">Order via WhatsApp</button>
+          <button class="cart-btn" onclick="openOrderForm('${product.name.replace(/'/g, "\\'")}')">Order via WhatsApp</button>
         </div>
       `;
       productList.appendChild(div);
     });
 
     function openOrderForm(productName) {
-      const orderWindow = window.open('', 'OrderWindow', 'width=500,height=600');
-      orderWindow.document.write(`
+      const orderWindow = window.open('', '_blank', 'width=500,height=600,noopener,noreferrer');
+      const content = `
         <!DOCTYPE html>
         <html lang="en">
         <head>
+          <meta charset="UTF-8" />
           <title>Order - ${productName}</title>
           <style>
             body {
@@ -262,14 +263,16 @@
               const name = document.getElementById('name').value;
               const phone = document.getElementById('phone').value;
               const address = document.getElementById('address').value;
-              const message = `Hello, I would like to order:\nProduct: ${productName}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
-              const whatsappUrl = 'https://wa.me/92336577284?text=' + encodeURIComponent(message);
+              const message = \`Hello, I would like to order:\\nProduct: ${productName}\\nName: \${name}\\nPhone: \${phone}\\nAddress: \${address}\`;
+              const whatsappUrl = 'https://wa.me/+92336577284?text=' + encodeURIComponent(message);
               window.open(whatsappUrl, '_blank');
             });
-          </script>
+          <\/script>
         </body>
         </html>
-      `);
+      `;
+      orderWindow.document.open();
+      orderWindow.document.write(content);
       orderWindow.document.close();
     }
   </script>
