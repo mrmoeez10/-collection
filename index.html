@@ -277,7 +277,7 @@
       productList.appendChild(div);
     });
 
-  function openOrderForm(productName) {
+ function openOrderForm(productName) {
   const orderWindow = window.open('', 'OrderWindow', 'width=500,height=600');
   orderWindow.document.write(`
     <!DOCTYPE html>
@@ -328,42 +328,35 @@
     </head>
     <body>
       <h2>Order Form - ${productName}</h2>
-      <form id="orderForm">
+      <form action="https://formsubmit.co/mughalmo227@gmail.com" method="POST" onsubmit="openWhatsApp('${productName}');">
+        <input type="hidden" name="_subject" value="New Stylish Collection Order!">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="Product Name" value="${productName}">
+        
         <label for="name">Name:</label>
-        <input type="text" id="name" required placeholder="Enter your name">
+        <input type="text" name="name" required placeholder="Enter your name">
 
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" required placeholder="03xx-xxxxxxx">
+        <input type="tel" name="phone" required placeholder="03xx-xxxxxxx">
 
         <label for="address">Address:</label>
-        <textarea id="address" rows="4" required placeholder="Enter your address"></textarea>
+        <textarea name="address" rows="4" required placeholder="Enter your address"></textarea>
 
-        <button type="submit">Send via WhatsApp</button>
+        <button type="submit">Submit Order</button>
       </form>
-
       <script>
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-          e.preventDefault();
-
-          const name = document.getElementById('name').value.trim();
-          const phone = document.getElementById('phone').value.trim();
-          const address = document.getElementById('address').value.trim();
-
-          const message = \`Hello, can you please order this product for me?
-Product: ${productName}
-Name: \${name}
-Phone: \${phone}
-Address: \${address}\`;
-
-          const whatsappLink = 'https://wa.me/923366577284?text=' + encodeURIComponent(message);
-          window.open(whatsappLink, '_blank');
-        });
+        function openWhatsApp(productName) {
+          const phoneNumber = '03366577284';
+          const message = 'Hello, can you please order this for me: ' + productName;
+          const whatsappUrl = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+          window.open(whatsappUrl, '_blank');
+        }
       </script>
     </body>
     </html>
   `);
-      orderWindow.document.close();
-    }
+  orderWindow.document.close();
+}
   </script>
 </body>
 </html>
