@@ -276,87 +276,96 @@
       `;
       productList.appendChild(div);
     });
-  <script>
- function openOrderForm(productName) {
-  const orderWindow = window.open('', 'OrderWindow', 'width=500,height=600');
-  orderWindow.document.write(`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <title>Order Form - ${productName}</title>
-      <style>
-        body {
-          font-family: 'Poppins', sans-serif;
-          background: linear-gradient(to right, #e0f7fa, #e8f5e9);
-          padding: 2rem;
-          color: #2e7d32;
-        }
-        h2 {
-          text-align: center;
-          color: #00796b;
-        }
-        form {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          max-width: 100%;
-        }
-        label {
-          font-weight: bold;
-        }
-        input, textarea {
-          padding: 0.6rem;
-          border: 1px solid #81c784;
-          border-radius: 6px;
-          font-size: 1rem;
-          outline: none;
-        }
-        button {
-          background: linear-gradient(to right, #4db6ac, #81c784);
-          border: none;
-          color: white;
-          padding: 0.8rem;
-          border-radius: 8px;
-          font-weight: bold;
-          cursor: pointer;
-          transition: background 0.3s;
-        }
-        button:hover {
-          background: linear-gradient(to right, #81c784, #4db6ac);
-        }
-      </style>
-    </head>
-    <body>
-      <h2>Order Form - ${productName}</h2>
-      <form action="https://formsubmit.co/mughalmo227@gmail.com" method="POST" onsubmit="openWhatsApp('${productName}');">
-        <input type="hidden" name="_subject" value="New Stylish Collection Order!">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="Product Name" value="${productName}">
-        
-        <label for="name">Name:</label>
-        <input type="text" name="name" required placeholder="Enter your name">
+<script>
+  function openOrderForm(productName) {
+    const orderWindow = window.open('', 'OrderWindow', 'width=500,height=600');
+    orderWindow.document.write(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <title>Order Form - ${productName}</title>
+        <style>
+          body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #e8f5e9);
+            padding: 2rem;
+            color: #2e7d32;
+          }
+          h2 {
+            text-align: center;
+            color: #00796b;
+          }
+          form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 100%;
+          }
+          label {
+            font-weight: bold;
+          }
+          input, textarea {
+            padding: 0.6rem;
+            border: 1px solid #81c784;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+          }
+          button {
+            background: linear-gradient(to right, #4db6ac, #81c784);
+            border: none;
+            color: white;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+          }
+          button:hover {
+            background: linear-gradient(to right, #81c784, #4db6ac);
+          }
+        </style>
+      </head>
+      <body>
+        <h2>Order Form - ${productName}</h2>
+        <form id="orderForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required placeholder="Enter your name" />
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" name="phone" required placeholder="03xx-xxxxxxx">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" required placeholder="03xx-xxxxxxx" />
 
-        <label for="address">Address:</label>
-        <textarea name="address" rows="4" required placeholder="Enter your address"></textarea>
+          <label for="address">Address:</label>
+          <textarea id="address" rows="4" required placeholder="Enter your address"></textarea>
 
-        <button type="submit">Submit Order</button>
-      </form>
-      <script>
-        function openWhatsApp(productName) {
-          const phoneNumber = '03366577284';
-          const message = 'Hello, can you please order this for me: ' + productName;
-          const whatsappUrl = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
-          window.open(whatsappUrl, '_blank');
-        }
-      </script>
-    </body>
-    </html>
-  `);
-  orderWindow.document.close();
-}
+          <button type="submit">Send via WhatsApp</button>
+        </form>
+
+        <script>
+          document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+
+            const message = \`Hello, can you please order this product for me?
+Product: ${productName}
+Name: \${name}
+Phone: \${phone}
+Address: \${address}\`;
+
+            const whatsappUrl = 'https://wa.me/923366577284?text=' + encodeURIComponent(message);
+            window.open(whatsappUrl, '_blank');
+          });
+        </script>
+      </body>
+      </html>
+    `);
+    orderWindow.document.close();
+  }
+</script>
+
   </script>
 </body>
 </html>
