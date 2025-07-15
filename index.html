@@ -1,3 +1,4 @@
+You want to replace the "Order via WhatsApp" button with a general WhatsApp button and add more products to your "Stylish Collection" website. Here's the updated HTML code for you:
 <!DOCTYPE html>
 <html lang="en">
 
@@ -137,19 +138,27 @@
       margin-top: 1rem;
     }
 
-    .cart-btn {
+    .whatsapp-btn {
       padding: 0.5rem 1rem;
-      background: linear-gradient(to right, #f12711, #f5af19);
+      background: linear-gradient(to right, #25D366, #128C7E);
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
       transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .cart-btn:hover {
-      background: linear-gradient(to right, #f5af19, #f12711);
+    .whatsapp-btn:hover {
+      background: linear-gradient(to right, #128C7E, #25D366);
+    }
+
+    .whatsapp-btn img {
+      width: 20px;
+      height: 20px;
     }
 
     footer {
@@ -190,17 +199,65 @@
   <script>
     const products = [{
       name: 'Red Floral Dress',
-      img: 'https://source.unsplash.com/250x250/?dress,1'
+      img: 'https://source.unsplash.com/250x250/?dress,floral,red'
     }, {
       name: 'Elegant Black Suit',
-      img: 'https://source.unsplash.com/250x250/?suit,black'
+      img: 'https://source.unsplash.com/250x250/?suit,black,elegant'
     }, {
       name: 'Classic Blue Shirt',
-      img: 'https://source.unsplash.com/250x250/?shirt,blue'
+      img: 'https://source.unsplash.com/250x250/?shirt,blue,classic'
     }, {
       name: 'Trendy Handbag',
-      img: 'https://source.unsplash.com/250x250/?handbag'
-    }];
+      img: 'https://source.unsplash.com/250x250/?handbag,trendy'
+    }, {
+      name: 'Stylish Denim Jacket',
+      img: 'https://source.unsplash.com/250x250/?denim,jacket,stylish'
+    }, {
+      name: 'Comfortable Sneakers',
+      img: 'https://source.unsplash.com/250x250/?sneakers,comfortable'
+    }, {
+      name: 'Formal Gown',
+      img: 'https://source.unsplash.com/250x250/?gown,formal'
+    }, {
+      name: 'Casual T-Shirt',
+      img: 'https://source.unsplash.com/250x250/?tshirt,casual'
+    }, {
+      name: 'Leather Boots',
+      img: 'https://source.unsplash.com/250x250/?boots,leather'
+    }, {
+      name: 'Silk Scarf',
+      img: 'https://source.unsplash.com/250x250/?scarf,silk'
+    }, {
+      name: 'Men\'s Watch',
+      img: 'https://source.unsplash.com/250x250/?watch,men'
+    }, {
+      name: 'Women\'s Heels',
+      img: 'https://source.unsplash.com/250x250/?heels,women'
+    }, {
+      name: 'Sporty Tracksuit',
+      img: 'https://source.unsplash.com/250x250/?tracksuit,sporty'
+    }, {
+      name: 'Summer Shorts',
+      img: 'https://source.unsplash.com/250x250/?shorts,summer'
+    }, {
+      name: 'Winter Coat',
+      img: 'https://source.unsplash.com/250x250/?coat,winter'
+    }, {
+      name: 'Designer Sunglasses',
+      img: 'https://source.unsplash.com/250x250/?sunglasses,designer'
+    }, {
+      name: 'Elegant Necklace',
+      img: 'https://source.unsplash.com/250x250/?necklace,elegant'
+    }, {
+      name: 'Chic Jumpsuit',
+      img: 'https://source.unsplash.com/250x250/?jumpsuit,chic'
+    }, {
+      name: 'Comfy Sweater',
+      img: 'https://source.unsplash.com/250x250/?sweater,comfy'
+    }, {
+      name: 'Professional Blazer',
+      img: 'https://source.unsplash.com/250x250/?blazer,professional'
+    }, ];
 
     const productList = document.getElementById('product-list');
 
@@ -212,34 +269,27 @@
         <h3>${product.name}</h3>
         <p>Elegant, durable, and trendy.</p>
         <div class="btn-group">
-          <button class="cart-btn" onclick="openOrderForm('${product.name}')">Order via WhatsApp</button>
+          <button class="whatsapp-btn" onclick="openWhatsApp()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" /> WhatsApp
+          </button>
         </div>
       `;
       productList.appendChild(div);
     });
 
-    function openOrderForm(productName) {
-      // Prompt user for details
-      const name = prompt("Please enter your name:");
-      if (!name) return; // Exit if user cancels
-
-      const phone = prompt("Please enter your phone number:");
-      if (!phone) return;
-
-      const address = prompt("Please enter your address:");
-      if (!address) return;
-
+    function openWhatsApp() {
       // Your WhatsApp number (Pakistan country code +92, without leading 0)
       const whatsappNumber = '923366577284';
-      const message = `Hello, I would like to order:\nProduct: ${productName}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+      const message = `Hello, I'm interested in your Stylish Collection!`;
 
       // Construct the WhatsApp API URL
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
       // Open WhatsApp in a new tab/window
-      window.open(whatsappUrl, '_blank');
+      window.open(whatsappUrl, '_send order message to this number 03366577284');
     }
   </script>
 </body>
 
 </html>
+
